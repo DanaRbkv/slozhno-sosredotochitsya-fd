@@ -22,26 +22,25 @@
 }
 
 .rec {
-  position: relative;
+  position: absolute;
   display: inline-flex;
   text-transform: uppercase;
-  align-items: start;
-  justify-self: end;
+  align-items: center;
+  justify-self: flex-end;
   color: var(--accent-color);
-  top: 10px;
-  margin-bottom: 39px;
+  top: 20px;
+  right: 29px;
+  gap: 10px;
 }
 
 .rec::after {
   content: '';
-  margin-inline: 10px;
-  position: relative;
-  inline-size: 9px;
-  block-size: 9px;
+  display: block;
+  width: 9px;
+  height: 9px;
   background-color: var(--accent-color);
   border-radius: 50%;
   box-shadow: 0 0 4px 2px;
-  margin-left: 10px;
 }
 
 .decorated-zone::after {
@@ -58,7 +57,7 @@
 .decorated-zone::before {
   content: '';
   position: absolute;
-  top: 633px;
+  bottom: 10px;
   left: 10px;
   border-bottom: 1px solid var(--decorate-color);
   border-left: 1px solid var(--decorate-color);
@@ -225,12 +224,32 @@
 
 @media (width >= 768px) {
 .header {
-  min-block-size: 768px;
+  min-block-size: 1024px;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: clamp(7.5rem, 4.8571rem + 5.506vw, 9.8125rem);
+  align-self: end;
+  margin-top: 55px;
+  margin-left: -10px;
 }
 
 .title__description {
   justify-self: end;
-  max-inline-size: 50%;
+  max-inline-size: 49%;
+  margin-right: 10px;
+  margin-bottom: 65px;
+
+}
+.decorated-zone::after {
+  top: 20px;
+  right: 20px;
+}
+
+.decorated-zone::before {
+  bottom: 20px;
+  left: 20px;
 }
 
 .why {
@@ -238,17 +257,30 @@
   grid-template-columns: 1fr 2fr;
   column-gap: 20px;
   row-gap: 0;
+  margin-right: 10px;
+  margin-left: 10px;
+  align-items: start;
 }
 
 .why .content__article {
   grid-column: 2;
 }
 
+.content__title:first-child {
+  margin-top: 20px;
+}
+
+.content__article {
+  margin-bottom: 0px;
+}
+
 .what {
+  margin-top: 60px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  column-gap: 20px;
+  column-gap: 40px;
   row-gap: 0;
+  margin-right: 10px;
 }
 
 .what .content__article {
@@ -259,8 +291,11 @@
 .how {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  column-gap: 20px;
+  column-gap: 25px;
   row-gap: 0;
+  margin-right: 10px;
+  text-wrap: balance;
+  margin-top: 60px;
 }
 
 .how .content__article {
@@ -270,7 +305,7 @@
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: auto auto auto;
   grid-auto-flow: dense;
   grid-template-areas:
   "sunset sunset ice-cream"
@@ -278,7 +313,6 @@
   "tape street street";
   column-gap: 20px;
   row-gap: 20px;
-  min-height: 780px;
 }
 
 .gallery__item {
@@ -330,8 +364,14 @@
 @media (width >= 1024px) {
 .header {
   grid-template-rows: repeat(3, auto);
+  margin-bottom: 0;
   min-block-size: 768px;
-}   
+} 
+
+.title {
+  font-size: 157px;
+  margin: 0;
+}
 
 .header__theme-menu {
   justify-self: center;
@@ -376,5 +416,9 @@
 
 .footer {
   min-block-size: 768px;
+}
+
+.footer__title {
+  font-size: 157px;
 }
 }

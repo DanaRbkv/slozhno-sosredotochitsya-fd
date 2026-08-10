@@ -17,6 +17,14 @@
   --title-color: rgba(255, 194, 230, 1);
   --decorate-color: rgba(53, 52, 48, 1);
   --shadow-color: rgba(50, 49, 45, 0.4);
+
+.rec {
+  display: none;
+}
+
+.rec::after {
+  display: none;
+}
 }
 
 @media (prefers-color-scheme: light) {
@@ -31,10 +39,3 @@
   }
 }
 
-.rec {
-  display: none;
-}
-
-.rec::after {
-  display: none;
-}
